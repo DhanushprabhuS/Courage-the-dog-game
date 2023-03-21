@@ -1,0 +1,257 @@
+    html {
+        background-color: rgba(255, 230, 0, 0.953);
+        background-repeat: no-repeat;
+        background-attachment: scroll;
+        background: url(./images/house\ bg.png) no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+    
+    body {
+        overflow: hidden;
+    }
+    
+    * {
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+        -webkit-user-select: none;
+        /* Safari */
+        -ms-user-select: none;
+        /* IE 10 and IE 11 */
+        user-select: none;
+        /* Standard syntax */
+    }
+    
+    main {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+    
+    ul {
+        list-style-type: none;
+        padding: 5vh;
+    }
+    
+    .list {
+        display: inline;
+        padding: 10px;
+        margin: 10px;
+        font-size: 4vh;
+        border: solid black 2px;
+        background-color: rgba(253, 0, 42, 0.526);
+    }
+    
+    .list:hover {
+        background-color: rgba(0, 0, 0, 0.378);
+        color: rgb(255, 54, 54);
+    }
+    
+    .bar {
+        border: solid rgb(0, 0, 0) 2px;
+        width: 80%;
+        margin: 2vh;
+        padding: 10px;
+        background-color: rgba(0, 0, 0, 0.69);
+        font-size: 3vh;
+    }
+    
+    @media (max-width: 1000px) {
+        .list {
+            display: inline;
+            padding: 10px;
+            margin: 10px;
+            font-size: 2.2vh;
+        }
+        .bar {
+            border: solid rgb(0, 0, 0) 2px;
+            width: 80%;
+            margin: 2vh;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.664);
+            font-size: 1.5vh;
+        }
+    }
+    
+    .heading {
+        text-align: center;
+        color: rgba(255, 54, 54, 0.745);
+        text-shadow: 5px 5px 4px rgb(0, 0, 0);
+    }
+    
+    .container-holes {
+        width: 600px;
+        height: 600px;
+        display: grid;
+        grid-template-columns: 200px 200px 200px;
+        border: solid rgb(0, 0, 0) 1px;
+        background-color: rgba(0, 0, 0, 0.342);
+    }
+    
+    .hole {
+        height: 150px;
+        padding: 10px;
+        background-image: url("./images/haystack.png");
+    }
+    
+    .hammer-wood {
+        height: 100px;
+        position: absolute;
+        border: 0.5px solid var(--accent);
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 999999;
+        pointer-events: none;
+    }
+    
+    .hit {
+        transform: translate(-50%, -50%) rotate(-45deg) !important;
+    }
+    
+    @media (max-width: 600px) {
+        .hammer-wood {
+            display: none;
+        }
+    }
+    
+    @keyframes popup {
+        from {
+            top: 200px;
+        }
+        50% {
+            top: 100px !important;
+        }
+        /* ignored */
+        to {
+            top: 0px;
+        }
+    }
+    
+    .duck {
+        background-image: url("./images/Space_Chicken_Model.webp");
+        background-size: cover;
+        animation: popup 5s;
+    }
+    
+    .game-over {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.823);
+        border: 5px solid black;
+        z-index: 999999999;
+        cursor: pointer;
+        align-content: center;
+        display: none;
+    }
+    
+    .input-box {
+        display: grid;
+        justify-content: center;
+        align-content: center;
+        gap: 4px;
+        grid-auto-flow: column;
+    }
+    
+    input {
+        height: 30px;
+        width: 400px;
+        border-radius: 5px;
+        border: 1px solid black;
+        text-align: center;
+        font-size: x-large;
+    }
+    
+    [class*='close-'] {
+        color: #ffffff;
+        position: absolute;
+        right: 5px;
+        text-decoration: none;
+        text-shadow: 0 1px 0 #fa0808;
+        top: 5px;
+    }
+    
+    .close-classic:after {
+        content: '✖';
+        /* ANSI X letter */
+    }
+    
+    button {
+        padding: 5px;
+        font-size: 3vh;
+        border: solid black 2px;
+        background-color: rgba(253, 0, 42, 0.526);
+    }
+    
+    @media (max-width: 1000px) {
+        .game-over {
+            position: fixed;
+            padding-top: 50%;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.823);
+            border: 5px solid black;
+            z-index: 999999999;
+            cursor: pointer;
+            align-content: center;
+            font-size: 2.5vh;
+            scroll-behavior: smooth;
+            display: none;
+            overflow: scroll;
+        }
+        input {
+            height: 50px;
+            width: 400px;
+            border-radius: 5px;
+            border: 1px solid black;
+            text-align: center;
+            font-size: x-large;
+        }
+        button {
+            padding: 5px;
+            font-size: 2.5vh;
+            border: solid black 2px;
+            background-color: rgba(253, 0, 42, 0.526);
+        }
+        #warning {
+            text-align: center;
+            font-size: 10px;
+        }
+        .scoreSpan {
+            color: rgba(255, 54, 54, 0.745);
+            padding: 0px;
+        }
+    }
+    
+    li {
+        margin: 8px;
+    }
+    
+    .scoreSpan {
+        color: rgba(255, 54, 54, 0.745);
+        padding: 10px;
+    }
+    
+    .disabled {
+        padding: 5px;
+        font-size: 3vh;
+        border: solid black 2px;
+        background-color: rgba(255, 255, 255, 0.526);
+        cursor: not-allowed;
+    }

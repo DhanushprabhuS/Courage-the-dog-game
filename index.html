@@ -1,0 +1,78 @@
+<html>
+
+<head>
+    <title>Game</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" type="image/png" href="./images/favicon.png">
+    <!--
+        This Game is developed by me for educational purpose and not for any commercial use.
+        So the music and images used in this project is only for the education purpose of my practice in web developement domain
+        Further, Copy Right Law of India, Section 52(1)(i) states that anything reproduced by a student or a teacher for the purpose of studies in an educational institution would not constitute an infringement of copyright.
+    -->
+</head>
+
+<body>
+    <main>
+        <div class="bar">
+            <h1 class="heading" style="float: left; ">Score : <span id="score">00</span></h1>
+            <h1 class="heading" style="float: right; ">Time Left : <span id="timmer">00</span></h1>
+        </div>
+        <ul>
+            <li class="list" id="play">PLAY</li>
+            <li class="list" id="mode">EASY</li>
+            <li class="list" id="sound"><span id="soundText"></span></li>
+        </ul>
+        <div class="container-holes">
+            <div class="hole" id="hole-1"><img src="./images/haystack.png" height="180px" /></div>
+            <div class="hole" id="hole-2"><img src="./images/haystack.png" height="180px" /></div>
+            <div class="hole" id="hole-3"><img src="./images/haystack.png" height="180px" /></div>
+            <div class="hole" id="hole-4"><img src="./images/haystack.png" height="180px" /></div>
+            <div class="hole" id="hole-5"><img src="./images/haystack.png" height="180px" /></div>
+            <div class="hole" id="hole-6"><img src="./images/haystack.png" height="180px" /></div>
+            <div class="hole" id="hole-7"><img src="./images/haystack.png" height="180px" /></div>
+            <div class="hole" id="hole-8"><img src="./images/haystack.png" height="180px" /></div>
+            <div class="hole" id="hole-9"><img src="./images/haystack.png" height="180px" /></div>
+        </div>
+        <div class="game-over">
+            <h1 class="heading">GAME OVER!</h1>
+            <a class="close-classic" id="close">Close - </a>
+            <br/>
+            <div class="input-box">
+                <img src="./images/favicon.png" height="150px" />
+            </div>
+            <div class="input-box">
+                <h2 class="heading">Score : <span id="final-score">00</span></h2>
+            </div>
+            <br/>
+            <div class="input-box">
+                <input type="text" id="name" placeholder="Enter Your Name" />
+            </div>
+            <div class="input-box" style="color: rgb(240, 255, 255);" id="warning">
+            </div>
+            <br/>
+            <div class="input-box">
+                <button id="submit">Submit</button>
+            </div>
+            <br/>
+            <h2 class="heading">Score Board (Top 10)</h2>
+            <div class="input-box">
+                <div class="input-box">
+                    <ol type="1" start="1" id="top-5" style="padding: 50px; color: whitesmoke;">
+                        <p>Loading...</p>
+                    </ol>
+                </div>
+                <hr style="margin: 100px;" />
+                <div class="input-box">
+                    <ol type="1" start="6" id="top-6-10" style="padding: 50px; color: whitesmoke;">
+                        <p>Loading...</p>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <img class="hammer-wood" src="images/hammer-wood.png" />
+</body>
+<script src="./script.js"></script>
+
+</html>
