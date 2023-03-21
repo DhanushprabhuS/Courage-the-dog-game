@@ -1,4 +1,4 @@
-console.log("I am Dhanush Prabhu S - feel free to contact me via mail dhanushprabhusenthil@gmail.com");
+console.log("Hi Dom-Inspector,I am Dhanush Prabhu S - feel free to contact me via mail dhanushprabhusenthil@gmail.com");
 console.log("Help Courage to defend his owners from a evil checken from outer space");
 
 const blocks = document.querySelectorAll(".hole img");
@@ -84,7 +84,6 @@ function countDown() {
 
     if (currentTime <= 0) {
         startAudio.pause();
-
         if (isSound) ending.play();
         ending.loop = true
         clearInterval(countDownTimerId);
@@ -93,9 +92,9 @@ function countDown() {
             hole.classList.remove("duck");
         });
         document.getElementById("final-score").innerHTML = result;
-        let setEvent = setInterval(() => {
-            play.addEventListener("click", startGame);
-        }, 10);
+        console.log("set click")
+        play.addEventListener("click", startGame);
+        play.classList.remove('disabled');
         document.querySelector(".game-over").style.display = "block";
         fetch(getUserURL)
             .then(data => {
@@ -118,9 +117,8 @@ mode.addEventListener("click", () => {
     mode.innerHTML = isEasy ? "EASY" : "HARD";
 })
 
-
-
 function startGame() {
+    console.log("reached")
     document.getElementById("final-score").innerHTML = 0;
     ending.pause();
     result = 0;
@@ -131,7 +129,9 @@ function startGame() {
     countDownTimerId = setInterval(countDown, 1000);
     moveDuck();
     play.removeEventListener("click", startGame);
+    play.classList.add('disabled');
 }
+
 const play = document.getElementById("play");
 play.addEventListener("click", startGame);
 
@@ -149,13 +149,13 @@ const getUserURL = 'https://script.google.com/macros/s/AKfycbyTV7koyydw9GMp9uDJz
 
 function setupRank(data) {
     let list1 = document.getElementById('top-5');
-    let data1 = data.slice(1, 6);
+    let data1 = data.slice(0, 5);
     let content1 = ``;
     data1.forEach(data => content1 += `<li> <span class="scoreSpan">${data.score}</span> <span style="padding:10px">${data.name}</span></li>`);
     list1.innerHTML = content1;
 
     let list2 = document.getElementById('top-6-10');
-    let data2 = data.slice(6, 11);
+    let data2 = data.slice(5, 10);
     let content2 = ``;
     data2.forEach(data => content2 += `<li> <span class="scoreSpan">${data.score}</span> <span style="padding:10px">${data.name}</span></li>`);
     list2.innerHTML = content2;
@@ -190,7 +190,6 @@ function submitAction(e) {
             .catch((error) => {
                 console.error("Error:", error);
             });
-
 
     } else {
         document.getElementById('warning').innerHTML = 'Please enter a valid name with only 10 chars';
