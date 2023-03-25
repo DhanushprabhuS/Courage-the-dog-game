@@ -123,6 +123,8 @@ function countDown() {
         console.log("set click")
         play.addEventListener("click", startGame);
         play.classList.remove('disabled');
+        mode.addEventListener("click", setMode);
+        mode.classList.remove('disabled');
         document.querySelector(".game-over").style.display = "block";
         fetch(getUserURL)
             .then(data => {
@@ -140,10 +142,11 @@ let countDownTimerId;
 const startAudio = new Audio("./sounds/crisis-courage.mp3");
 const mode = document.getElementById("mode");
 var isEasy = true;
-mode.addEventListener("click", () => {
+function setMode() {
     isEasy = !isEasy;
     mode.innerHTML = isEasy ? "EASY" : "HARD";
-})
+}
+mode.addEventListener("click", setMode);
 
 function startGame() {
     console.log("reached")
@@ -157,8 +160,11 @@ function startGame() {
     countDownTimerId = setInterval(countDown, 1000);
     moveDuck();
     //moveCourage();
-    play.removeEventListener("click", startGame);
     play.classList.add('disabled');
+    mode.classList.add('disabled');
+    play.removeEventListener("click", startGame);
+    mode.removeEventListener("click",setMode);
+    
 }
 
 const play = document.getElementById("play");
