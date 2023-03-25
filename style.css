@@ -144,6 +144,12 @@
         animation: popup 5s;
     }
     
+    .courage {
+        background-image: url("./images/favicon.png");
+        background-size: cover;
+        animation: popup 5s;
+    }
+    
     .game-over {
         position: fixed;
         width: 100%;

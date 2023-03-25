@@ -58,6 +58,25 @@ function moveDuck() {
     timerId = setInterval(randomSquare, isEasy ? 800 : 400);
 }
 
+let dangerPosition = [];
+function randomCourage() {
+    holes.forEach((hole) => {
+        hole.classList.remove("duck");
+    });
+    holes.forEach((hole) => {
+        hole.classList.remove("courage");
+    });
+    dangerPosition = [];
+    let randomSquare = holes[Math.floor(Math.random() * 9)];
+    randomSquare.classList.add("courage");
+    dangerPosition.push(randomSquare.id);
+}
+let courageId = null;
+
+// function moveCourage() {
+//     courageId = setInterval(randomCourage, Math.floor(Math.random()*90000));
+// }
+
 
 let result = 0;
 let score = document.getElementById("score")
@@ -67,6 +86,13 @@ holes.forEach((square) => {
         if (hitPosition.includes(square.id)) {
             if (isSound) quack.play();
             result++;
+            score.textContent = result;
+            hitPosition = [];
+        }
+
+        if(dangerPosition.includes(square.id)) {
+            if (isSound) quack.play();
+            result--;
             score.textContent = result;
             hitPosition = [];
         }
@@ -88,8 +114,10 @@ function countDown() {
         ending.loop = true
         clearInterval(countDownTimerId);
         clearInterval(timerId);
+        clearInterval(courageId);
         holes.forEach((hole) => {
             hole.classList.remove("duck");
+            hole.classList.remove("courage");
         });
         document.getElementById("final-score").innerHTML = result;
         console.log("set click")
@@ -128,6 +156,7 @@ function startGame() {
     timmer.textContent = currentTime;
     countDownTimerId = setInterval(countDown, 1000);
     moveDuck();
+    //moveCourage();
     play.removeEventListener("click", startGame);
     play.classList.add('disabled');
 }
